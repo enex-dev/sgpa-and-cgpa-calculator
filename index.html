@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free SGPA & CGPA Calculator for Students</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="container">
+    <span class="badge">🎓 Student Tools</span>
+    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+
+    <h1 id="heroTitle">SGPA Calculator</h1>
+
+    <p id="heroSubtitle">Calculate your Semester Grade Point Average instantly.</p>
+
+  </div>
+</header>
+
+<main class="container">
+  <nav class="tabs">
+    <button id="sgpaTab" class="active">📚 SGPA</button>
+    <button id="cgpaTab">🎓 CGPA</button>
+    <button id="learnTab">📖 Learn</button>
+</nav>
+
+  <section class="calculator-card">
+    <div id="subjectsContainer">
+      <article class="subject-card">
+        <h2>📘 Subject 1</h2>
+
+        <label for="subject1">Subject Name</label>
+        <input id="subject1" type="text" placeholder="e.g. Data Structures (Optional)">
+
+        <div class="row">
+          <div>
+            <label for="credits1">Credits</label>
+            <input id="credits1" type="number" min="1" max="10">
+          </div>
+
+          <div>
+            <label for="grade1">Grade</label>
+            <select id="grade1">
+              <option value="">Select Grade</option>
+              <option>O</option>
+              <option>A+</option>
+              <option>A</option>
+              <option>B+</option>
+              <option>B</option>
+              <option>C</option>
+              <option>P</option>
+              <option>F</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="remove-btn">Remove</button>
+      </article>
+    </div>
+
+    <div class="actions">
+      <button id="addBtn">+ Add Subject</button>
+      <button id="resetBtn">Reset</button>
+      <button id="calculateBtn">✨ Calculate SGPA</button>
+    </div>
+  </section>
+
+  <section class="result-card">
+
+    <h2>🎓 Academic Result</h2>
+
+    <div id="result" class="result-dashboard">
+
+        <!-- Main Score -->
+        <div class="result-header">
+
+            <h1 id="resultScore">--</h1>
+
+            <span id="resultBadge" class="result-badge">
+                Waiting...
+            </span>
+
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-container">
+
+            <div class="progress-bar">
+
+                <div id="progressFill" class="progress-fill"></div>
+
+            </div>
+
+            <p id="progressPercent">0%</p>
+
+        </div>
+
+        <!-- Statistics -->
+        <div class="result-stats">
+
+            <div class="stat-box">
+
+                <h3 id="subjectsStat">0</h3>
+
+                <p>Subjects</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3 id="creditsStat">0</h3>
+
+                <p>Credits</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3 id="pointsStat">0</h3>
+
+                <p>Grade Points</p>
+
+            </div>
+
+        </div>
+
+        <!-- Message -->
+
+        <div class="message-box">
+
+            <p id="motivationText">
+
+                Your SGPA will appear here after calculation.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+  <section class="cgpa-section hidden">
+
+    <section class="calculator-card">
+
+
+        <div id="semesterContainer">
+
+            <article class="semester-card">
+
+                <h2>📚 Semester 1</h2>
+
+                <label>SGPA</label>
+                <input
+                    type="number"
+                    min="0"
+                    max="10"
+                    step="0.01"
+                    placeholder="Enter SGPA">
+
+                <label>Credits</label>
+                <input
+                    type="number"
+                    min="1"
+                    placeholder="Total Credits">
+
+                <button class="removeSemester">
+                    Remove
+                </button>
+
+            </article>
+
+        </div>
+
+        <div class="actions">
+
+            <button id="addSemesterBtn">
+                + Add Semester
+            </button>
+
+            <button id="resetCgpaBtn">
+                Reset
+            </button>
+
+            <button id="calculateCgpaBtn">
+                ✨ Calculate CGPA
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="result-card">
+
+    <h2>🎓 Academic Result</h2>
+
+    <div id="cgpaResult" class="result-dashboard">
+
+        <div class="result-header">
+
+            <h1 id="cgpaScore">--</h1>
+
+            <span id="cgpaBadge" class="result-badge">
+                Waiting...
+            </span>
+
+        </div>
+
+        <div class="progress-container">
+
+            <div class="progress-bar">
+
+                <div id="cgpaProgressFill" class="progress-fill"></div>
+
+            </div>
+
+            <p id="cgpaPercent">0%</p>
+
+        </div>
+
+        <div class="result-stats">
+
+            <div class="stat-box">
+
+                <h3 id="semesterStat">0</h3>
+
+                <p>Semesters</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3 id="cgpaCredits">0</h3>
+
+                <p>Credits</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3 id="cgpaPoints">0</h3>
+
+                <p>Weighted Points</p>
+
+            </div>
+
+        </div>
+
+        <div class="message-box">
+
+            <p id="cgpaMessage">
+
+                Your CGPA will appear here after calculation.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+
+  <section class="learn-section hidden">
+
+    <h1>📖 Learn About SGPA & CGPA</h1>
+    <p class="learn-intro">
+        Everything you need to know about SGPA, CGPA and Grade Points.
+    </p>
+
+    <!-- Quick Facts -->
+    <div class="learn-card">
+        <h2>💡 Quick Facts</h2>
+
+        <ul>
+            <li>✅ Maximum SGPA = <strong>10.00</strong></li>
+            <li>✅ Minimum SGPA = <strong>0.00</strong></li>
+            <li>✅ Higher credit subjects have more impact.</li>
+            <li>✅ F Grade = 0 Grade Points.</li>
+            <li>✅ SGPA is calculated semester-wise.</li>
+            <li>✅ CGPA is calculated across all semesters.</li>
+        </ul>
+    </div>
+
+    <!-- SGPA -->
+    <div class="learn-card">
+        <h2>📘 What is SGPA?</h2>
+
+        <p>
+            SGPA (Semester Grade Point Average) represents your academic
+            performance in a single semester. It is calculated using the
+            credits and grade points obtained in each subject.
+        </p>
+    </div>
+
+    <!-- CGPA -->
+    <div class="learn-card">
+        <h2>🎓 What is CGPA?</h2>
+
+        <p>
+            CGPA (Cumulative Grade Point Average) is the average of all
+            semester SGPAs throughout your degree and reflects your
+            overall academic performance.
+        </p>
+    </div>
+
+    <!-- Formula -->
+    <div class="learn-card">
+        <h2>🧮 SGPA Formula</h2>
+
+        <div class="formula-box">
+            SGPA = Σ(Credit × Grade Point) <br>
+            ─────────────────────────────── <br>
+            Total Credits
+        </div>
+
+        <br>
+
+        <h2>🧮 CGPA Formula</h2>
+
+        <div class="formula-box">
+            CGPA = Σ(SGPA × Semester Credits) <br>
+            ───────────────────────────────── <br>
+            Total Semester Credits
+        </div>
+    </div>
+
+    <!-- Grade Table -->
+    <div class="learn-card">
+
+        <h2>🏅 Grade Point Table</h2>
+
+        <table class="grade-table">
+
+            <tr>
+                <th>Grade</th>
+                <th>Grade Point</th>
+            </tr>
+
+            <tr><td>O</td><td>10</td></tr>
+            <tr><td>A+</td><td>9</td></tr>
+            <tr><td>A</td><td>8</td></tr>
+            <tr><td>B+</td><td>7</td></tr>
+            <tr><td>B</td><td>6</td></tr>
+            <tr><td>C</td><td>5</td></tr>
+            <tr><td>P</td><td>4</td></tr>
+            <tr><td>F</td><td>0</td></tr>
+
+        </table>
+
+    </div>
+
+    <!-- Example -->
+
+    <div class="learn-card">
+
+        <h2>📝 Example Calculation</h2>
+
+        <p>
+
+            Suppose a student has:
+
+        </p>
+
+        <table class="grade-table">
+
+            <tr>
+                <th>Subject</th>
+                <th>Credits</th>
+                <th>Grade</th>
+            </tr>
+
+            <tr><td>Mathematics</td><td>4</td><td>O</td></tr>
+            <tr><td>Physics</td><td>3</td><td>A+</td></tr>
+            <tr><td>Programming</td><td>4</td><td>A</td></tr>
+            <tr><td>English</td><td>2</td><td>B+</td></tr>
+
+        </table>
+
+        <div class="formula-box">
+
+            (4×10)+(3×9)+(4×8)+(2×7)
+
+            <br><br>
+
+            = 40 + 27 + 32 + 14
+
+            <br><br>
+
+            = 113
+
+            <br><br>
+
+            SGPA = 113 ÷ 13 = <strong>8.69</strong>
+
+        </div>
+
+    </div>
+
+    <!-- Tips -->
+
+    <div class="learn-card">
+
+        <h2>💡 Tips to Improve GPA</h2>
+
+        <ul>
+
+            <li>📌 Focus more on high-credit subjects.</li>
+
+            <li>📌 Complete assignments on time.</li>
+
+            <li>📌 Track your SGPA every semester.</li>
+
+            <li>📌 Never ignore low-credit subjects.</li>
+
+            <li>📌 Maintain consistent performance.</li>
+
+        </ul>
+
+    </div>
+
+    <!-- FAQ -->
+
+    <div class="learn-card">
+
+        <h2>❓ Frequently Asked Questions</h2>
+
+        <details>
+            <summary>What is the highest SGPA?</summary>
+            <p>10.00</p>
+        </details>
+
+        <details>
+            <summary>Can SGPA be more than 10?</summary>
+            <p>No.</p>
+        </details>
+
+        <details>
+            <summary>Does an F grade affect SGPA?</summary>
+            <p>Yes. F grade carries 0 grade points.</p>
+        </details>
+
+        <details>
+            <summary>Does every subject have equal weight?</summary>
+            <p>No. Higher credit subjects contribute more.</p>
+        </details>
+
+        <details>
+            <summary>Is SGPA the same as percentage?</summary>
+            <p>No. Every university has its own conversion formula.</p>
+        </details>
+
+    </div>
+
+</section>
+
+ 
+</main>
+
+<footer class="footer">
+  <p>Made with ❤️ for Students</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
